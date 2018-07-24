@@ -1,12 +1,16 @@
 {
   "name": "code-example",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Language code example.",
   "main": "index.js",
   "scripts": {
     "build": "babel --plugins transform-runtime src --out-dir lib --copy-files"
   },
   "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaywcjlove/code-example.git"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.26.0",
