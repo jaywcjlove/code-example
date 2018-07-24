@@ -1,0 +1,34 @@
+
+const code = `package addressbook;
+
+message Address {
+   required string street = 1;
+   required string postCode = 2;
+}
+
+message PhoneNumber {
+   required string number = 1;
+}
+
+message Person {
+   optional int32 id = 1;
+   required string name = 2;
+   required string surname = 3;
+   optional Address address = 4;
+   repeated PhoneNumber phoneNumbers = 5;
+   optional uint32 age = 6;
+   repeated uint32 favouriteNumbers = 7;
+   optional string license = 8;
+   enum Gender {
+      MALE = 0;
+      FEMALE = 1;
+   }
+   optional Gender gender = 9;
+   optional fixed64 lastUpdate = 10;
+   required bool deleted = 11 [default = false];
+}
+
+
+`;
+
+export default code;
