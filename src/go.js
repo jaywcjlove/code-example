@@ -30,7 +30,7 @@ func sieve() {
   go generate(ch)       // Start generate() as a subprocess.
   for {
     prime := <-ch
-    fmt.Print(prime, "\n")
+    fmt.Print(prime, "\\n")
     ch1 := make(chan int)
     go filter(ch, ch1, prime)
     ch = ch1
