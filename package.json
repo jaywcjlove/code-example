@@ -1,7 +1,7 @@
 {
   "name": "code-example",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Language code example.",
   "main": "index.js",
   "scripts": {
     "build": "babel --plugins transform-runtime src --out-dir lib --copy-files"
