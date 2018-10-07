@@ -1,6 +1,6 @@
 {
   "name": "code-example",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Language code example.",
   "main": "index.js",
   "scripts": {
