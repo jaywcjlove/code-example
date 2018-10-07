@@ -25,7 +25,7 @@ clojure          factor           jsx              perl             slim        
 cmake            fcl              julia            php              smalltalk        twig
 cobol            forth            less             pig              smarty           vb
 coffeescript     fortran          livescript       powershell       solr             vbscript
-commonlisp       gas              lua              properties       soy              velocity
+commonlisp       gas              lua              properties/ini   soy              velocity
 crystal          gherkin          markdown         protobuf         sparql           verilog
 css              go               mathematica      pug              spreadsheet      vhdl
 cypher           groovy           mbox             puppet           sql              vue
