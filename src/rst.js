@@ -37,9 +37,9 @@ Inline markup
 
 The standard reST inline markup is quite simple: use
 
-* one asterisk: ``*text*`` for emphasis (italics),
-* two asterisks: ``**text**`` for strong emphasis (boldface), and
-* backquotes: ````text```` for code samples.
+* one asterisk: \`\`*text*\`\` for emphasis (italics),
+* two asterisks: \`\`**text**\`\` for strong emphasis (boldface), and
+* backquotes: \`\`\`\`text\`\`\`\` for code samples.
 
 If asterisks or backquotes appear in running text and could be confused with
 inline markup delimiters, they have to be escaped with a backslash.
@@ -47,22 +47,22 @@ inline markup delimiters, they have to be escaped with a backslash.
 Be aware of some restrictions of this markup:
 
 * it may not be nested,
-* content may not start or end with whitespace: ``* text*`` is wrong,
+* content may not start or end with whitespace: \`\`* text*\`\` is wrong,
 * it must be separated from surrounding text by non-word characters.  Use a
-  backslash escaped space to work around that: ``thisis\ *one*\ word``.
+  backslash escaped space to work around that: \`\`thisis\ *one*\ word\`\`.
 
 These restrictions may be lifted in future versions of the docutils.
 
 reST also allows for custom "interpreted text roles"', which signify that the
 enclosed text should be interpreted in a specific way.  Sphinx uses this to
 provide semantic markup and cross-referencing of identifiers, as described in
-the appropriate section.  The general syntax is ``:rolename:\`content\```.
+the appropriate section.  The general syntax is \`\`:rolename:\`content\`\`\`.
 
 Standard reST provides the following roles:
 
-* :durole:\`emphasis\` -- alternate spelling for ``*emphasis*``
-* :durole:\`strong\` -- alternate spelling for ``**strong**``
-* :durole:\`literal\` -- alternate spelling for ````literal````
+* :durole:\`emphasis\` -- alternate spelling for \`\`*emphasis*\`\`
+* :durole:\`strong\` -- alternate spelling for \`\`**strong**\`\`
+* :durole:\`literal\` -- alternate spelling for \`\`\`\`literal\`\`\`\`
 * :durole:\`subscript\` -- subscript text
 * :durole:\`superscript\` -- superscript text
 * :durole:\`title-reference\` -- for titles of books, periodicals, and other
@@ -76,7 +76,7 @@ Lists and Quote-like blocks
 
 List markup (:duref:\`ref <bullet-lists>\`) is natural: just place an asterisk at
 the start of a paragraph and indent properly.  The same goes for numbered lists;
-they can also be autonumbered using a ``#`` sign::
+they can also be autonumbered using a \`\`#\`\` sign::
 
    * This is a bulleted list.
    * It has two items, the second
@@ -133,7 +133,7 @@ Source Code
 -----------
 
 Literal code blocks (:duref:\`ref <literal-blocks>\`) are introduced by ending a
-paragraph with the special marker ``::``.  The literal block must be indented
+paragraph with the special marker \`\`::\`\`.  The literal block must be indented
 (and, like all paragraphs, separated from the surrounding ones by blank lines)::
 
    This is a normal text paragraph. The next paragraph is a code sample::
@@ -145,7 +145,7 @@ paragraph with the special marker ``::``.  The literal block must be indented
 
    This is a normal text paragraph again.
 
-The handling of the ``::`` marker is smart:
+The handling of the \`\`::\`\` marker is smart:
 
 * If it occurs as a paragraph of its own, that paragraph is completely left
   out of the document.
@@ -193,9 +193,9 @@ Hyperlinks
 ----------
 
 External links
-^^^^^^^^^^^^^^
+\^\^\^\^\^\^\^\^\^\^\^\^\^\^
 
-Use \```Link text <http://example.com/>\`_\`\` for inline web links.  If the link
+Use \`\`\`Link text <http://example.com/>\`_\`\` for inline web links.  If the link
 text should be the web address, you don't need special markup at all, the parser
 finds links and mail addresses in ordinary text.
 
@@ -208,7 +208,7 @@ You can also separate the link and the target definition (:duref:\`ref
 
 
 Internal links
-^^^^^^^^^^^^^^
+\^\^\^\^\^\^\^\^\^\^\^\^\^\^
 
 Internal linking is done via a special reST role provided by Sphinx, see the
 section on specific markup, :ref:\`ref-role\`.
@@ -229,12 +229,12 @@ Normally, there are no heading levels assigned to certain characters as the
 structure is determined from the succession of headings.  However, for the
 Python documentation, this convention is used which you may follow:
 
-* ``#`` with overline, for parts
-* ``*`` with overline, for chapters
-* ``=``, for sections
-* ``-``, for subsections
-* ``^``, for subsubsections
-* ``"``, for paragraphs
+* \`\`#\`\` with overline, for parts
+* \`\`*\`\` with overline, for chapters
+* \`\`=\`\`, for sections
+* \`\`-\`\`, for subsections
+* \`\`^\`\`, for subsubsections
+* \`\`"\`\`, for paragraphs
 
 Of course, you are free to use your own marker characters (see the reST
 documentation), and use a deeper nesting level, but keep in mind that most
@@ -248,7 +248,7 @@ Explicit Markup
 most constructs that need special handling, such as footnotes,
 specially-highlighted paragraphs, comments, and generic directives.
 
-An explicit markup block begins with a line starting with ``..`` followed by
+An explicit markup block begins with a line starting with \`\`..\`\` followed by
 whitespace and is terminated by the next paragraph at the same level of
 indentation.  (There needs to be a blank line between explicit markup and normal
 paragraphs.  This may all sound a bit complicated, but it is intuitive enough
@@ -281,7 +281,7 @@ Docutils supports the following directives:
   - :dudir:\`contents\` (a local, i.e. for the current file only, table of
     contents)
   - :dudir:\`container\` (a container with a custom class, useful to generate an
-    outer ``<div>`` in HTML)
+    outer \`\`<div>\`\` in HTML)
   - :dudir:\`rubric\` (a heading without relation to the document sectioning)
   - :dudir:\`topic\`, :dudir:\`sidebar\` (special highlighted body elements)
   - :dudir:\`parsed-literal\` (literal block that supports inline markup)
@@ -306,7 +306,7 @@ Docutils supports the following directives:
 
 * HTML specifics:
 
-  - :dudir:\`meta\` (generation of HTML ``<meta>`` tags)
+  - :dudir:\`meta\` (generation of HTML \`\`<meta>\`\` tags)
   - :dudir:\`title\` (override document title)
 
 * Influencing markup:
@@ -332,9 +332,9 @@ directives.)  Looking at this example, ::
 
       Return a line of text input from the user.
 
-``function`` is the directive name.  It is given two arguments here, the
+\`\`function\`\` is the directive name.  It is given two arguments here, the
 remainder of the first line and the second line, as well as one option
-``module`` (as you can see, options are given in the lines immediately following
+\`\`module\`\` (as you can see, options are given in the lines immediately following
 the arguments and indicated by the colons).  Options must be indented to the
 same level as the directive content.
 
@@ -350,19 +350,19 @@ reST supports an image directive (:dudir:\`ref <image>\`), used like so::
    .. image:: gnu.png
       (options)
 
-When used within Sphinx, the file name given (here ``gnu.png``) must either be
+When used within Sphinx, the file name given (here \`\`gnu.png\`\`) must either be
 relative to the source file, or absolute which means that they are relative to
-the top source directory.  For example, the file ``sketch/spam.rst`` could refer
-to the image ``images/spam.png`` as ``../images/spam.png`` or
-``/images/spam.png``.
+the top source directory.  For example, the file \`\`sketch/spam.rst\`\` could refer
+to the image \`\`images/spam.png\`\` as \`\`../images/spam.png\`\` or
+\`\`/images/spam.png\`\`.
 
 Sphinx will automatically copy image files over to a subdirectory of the output
-directory on building (e.g. the ``_static`` directory for HTML output.)
+directory on building (e.g. the \`\`_static\`\` directory for HTML output.)
 
-Interpretation of image size options (``width`` and ``height``) is as follows:
+Interpretation of image size options (\`\`width\`\` and \`\`height\`\`) is as follows:
 if the size has no unit or the unit is pixels, the given size will only be
 respected for output channels that support pixels (i.e. not in LaTeX output).
-Other units (like ``pt`` for points) will be used for HTML and LaTeX output.
+Other units (like \`\`pt\`\` for points) will be used for HTML and LaTeX output.
 
 Sphinx extends the standard docutils behavior by allowing an asterisk for the
 extension::
@@ -371,7 +371,7 @@ extension::
 
 Sphinx then searches for all images matching the provided pattern and determines
 their type.  Each builder then chooses the best image out of these candidates.
-For instance, if the file name ``gnu.*`` was given and two files :file:\`gnu.pdf\`
+For instance, if the file name \`\`gnu.*\`\` was given and two files :file:\`gnu.pdf\`
 and :file:\`gnu.png\` existed in the source tree, the LaTeX builder would choose
 the former, while the HTML builder would prefer the latter.
 
@@ -385,7 +385,7 @@ the former, while the HTML builder would prefer the latter.
 Footnotes
 ---------
 
-For footnotes (:duref:\`ref <footnotes>\`), use ``[#name]_`` to mark the footnote
+For footnotes (:duref:\`ref <footnotes>\`), use \`\`[#name]_\`\` to mark the footnote
 location, and add the footnote body at the bottom of the document after a
 "Footnotes" rubric heading, like so::
 
@@ -396,8 +396,8 @@ location, and add the footnote body at the bottom of the document after a
    .. [#f1] Text of the first footnote.
    .. [#f2] Text of the second footnote.
 
-You can also explicitly number the footnotes (``[1]_``) or use auto-numbered
-footnotes without names (``[#]_``).
+You can also explicitly number the footnotes (\`\`[1]_\`\`) or use auto-numbered
+footnotes without names (\`\`[#]_\`\`).
 
 
 Citations
@@ -412,14 +412,14 @@ from all files.  Use them like so::
    .. [Ref] Book or article reference, URL or whatever.
 
 Citation usage is similar to footnote usage, but with a label that is not
-numeric or begins with ``#``.
+numeric or begins with \`\`#\`\`.
 
 
 Substitutions
 -------------
 
 reST supports "substitutions" (:duref:\`ref <substitution-definitions>\`), which
-are pieces of text and/or markup referred to in the text by ``|name|``.  They
+are pieces of text and/or markup referred to in the text by \`\`|name|\`\`.  They
 are defined like footnotes with explicit markup blocks, like this::
 
    .. |name| replace:: replacement *text*
@@ -479,14 +479,10 @@ There are some problems one commonly runs into while authoring reST documents:
   <http://docutils.sf.net/docs/ref/rst/restructuredtext.html#inline-markup>\`_
   for the details.
 
-* **No nested inline markup:** Something like ``*see :func:\`foo\`*`` is not
+* **No nested inline markup:** Something like \`\`*see :func:\`foo\`*\`\` is not
   possible.
 
-
 .. rubric:: Footnotes
-
-.. [1] When the default domain contains a :rst:dir:\`class\` directive, this directive
-       will be shadowed.  Therefore, Sphinx re-exports it as :rst:dir:\`rst-class\`.
 `;
 
 export default code;

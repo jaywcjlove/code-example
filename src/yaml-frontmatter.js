@@ -55,11 +55,11 @@ lines~~
 
 ## Fenced code blocks (and syntax highlighting)
 
-\```javascript
+\`\`\`javascript
 for (var i = 0; i < items.length; i++) {
   console.log(items[i], i); // log them
 }
-\```
+\`\`\`
 
 ## Task Lists
 
