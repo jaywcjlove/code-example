@@ -1,10 +1,10 @@
 {
   "name": "code-example",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Language code example.",
   "main": "index.js",
   "scripts": {
-    "build": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose"
+    "start": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose"
   },
   "author": "",
   "repository": {
