@@ -12,16 +12,20 @@
     "url": "https://github.com/jaywcjlove/code-example.git"
   },
   "license": "MIT",
-  "devDependencies": {},
-  "dependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-async-to-generator": "^7.1.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.0",
-    "@babel/runtime": "^7.1.2"
-  }
+  "files": [
+    "lib",
+    "code"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.0",
+    "@babel/plugin-transform-async-to-generator": "^7.8.0",
+    "@babel/plugin-transform-runtime": "^7.8.0",
+    "@babel/preset-env": "^7.8.2",
+    "@babel/runtime": "^7.8.0"
+  },
+  "dependencies": {}
 }
