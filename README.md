@@ -14,7 +14,8 @@ import('code-example/lib/php.js').then((data) => {
   console.log('Language PHP Code Example:', data.default);
 });
 // load txt file
-import('code-example/lib/sample.php.txt').then((data) => {
+// https://github.com/microsoft/monaco-editor/tree/gh-pages/index/samples
+import('code-example/txt/sample.php.txt').then((data) => {
   console.log('Language PHP Code Example:', data.default);
 });
 ```
