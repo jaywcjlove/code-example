@@ -6,7 +6,7 @@
   "scripts": {
     "start": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose"
   },
-  "author": "",
+  "author": "Kenny Wong <wowohoo@qq.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaywcjlove/code-example.git"
@@ -15,7 +15,8 @@
   "files": [
     "lib",
     "txt",
-    "code"
+    "code",
+    "ext.json"
   ],
   "devDependencies": {
     "@babel/cli": "7.14.5",
