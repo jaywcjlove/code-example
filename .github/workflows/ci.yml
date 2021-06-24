@@ -16,6 +16,9 @@ jobs:
       - run: npm run start
       - run: node scripts.mjs
 
+      - run: npm install @jsdevtools/npm-publish -g
+      - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
+
       - name: Create Tag
         id: create_tag
         uses: jaywcjlove/create-tag-action@v1.2.0
