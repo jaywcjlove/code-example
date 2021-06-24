@@ -3,7 +3,8 @@ import { readdir, writeFile } from 'fs/promises';
 
 ;(async () => {
   const rootSrc = path.join(process.cwd(), 'txt');
-  const outputFile = path.join(process.cwd(), 'ext.json');
+  const outputFileExts = path.join(process.cwd(), 'ext.json');
+  const outputFileNames = path.join(process.cwd(), 'names.txt.json');
   try {
     const files = await readdir(rootSrc);
     const exts = ['diff'];
@@ -14,9 +15,11 @@ import { readdir, writeFile } from 'fs/promises';
         exts.push(ext);
       }
     }
-    await writeFile(outputFile, JSON.stringify(exts, null, 2));
+    await writeFile(outputFileExts, JSON.stringify(exts, null, 2));
     console.log();
-    console.log('✅', '\x1b[32;1m', path.basename(outputFile), '\x1b[0m', outputFile);
+    console.log('✅', '\x1b[32;1m', path.basename(outputFileExts), '\x1b[0m', outputFileExts);
+    await writeFile(outputFileNames, JSON.stringify(files, null, 2));
+    console.log('✅', '\x1b[32;1m', path.basename(outputFileNames), '\x1b[0m', outputFileExts);
     console.log();
   } catch (error) {
     console.log('Error:', error)
