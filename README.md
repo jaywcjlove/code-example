@@ -1,6 +1,8 @@
 code-example
 ---
 
+Language code example & sample.
+
 ## Installation
 
 ```bash
