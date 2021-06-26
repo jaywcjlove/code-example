@@ -4,7 +4,8 @@
   "description": "Language code example.",
   "main": "index.js",
   "scripts": {
-    "start": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose"
+    "start": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose && npm run create",
+    "create": "node scripts.mjs"
   },
   "author": "Kenny Wong <wowohoo@qq.com>",
   "repository": {
