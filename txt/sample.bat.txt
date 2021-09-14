@@ -6,8 +6,8 @@ rem *******End Comment**************
 @echo off
 if exist C:\output.txt goto EMPTYEXISTS
 setlocal
-	path=g:\programs\superapp;%path%
-	call superapp>C:\output.txt
+  path=g:\programs\superapp;%path%
+  call superapp>C:\output.txt
 endlocal
 :EMPTYEXISTS
 start notepad c:\output.txt

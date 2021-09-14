@@ -3,7 +3,7 @@
 // license information.
 
 /*
- *	COMMAND LINE: -Ox -Gz -YX -UPROTOTYPES_REQUIRED
+ *  COMMAND LINE: -Ox -Gz -YX -UPROTOTYPES_REQUIRED
  */
 
 #pragma warning(disable : 4532)

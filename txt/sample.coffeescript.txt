@@ -22,7 +22,7 @@ raceVehicles = (new Car for i in [1..100])
 startRace = (vehicles) -> [vehicle.drive() for vehicle in vehicles]
 
 fancyRegExp = ///
-	(\d+)	# numbers
-	(\w*)	# letters
-	$		# the end
+  (\d+)  # numbers
+  (\w*)  # letters
+  $    # the end
 ///

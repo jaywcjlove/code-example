@@ -4,8 +4,8 @@ contract HackBG =
     record state = { developers: map(address, developer) }
 
     record developer = { name: string
-                       , age: int
-                       , skillset: map(skill, experience) }
+                                , age: int
+                                , skillset: map(skill, experience) }
 
     type skill = string
     type experience = int

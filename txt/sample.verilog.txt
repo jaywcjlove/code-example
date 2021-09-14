@@ -8,7 +8,7 @@ wire [3:0] counter_out;
 initial begin
   $display ("time\t clk reset enable counter");
   $monitor ("%g\t %b   %b     %b      %b",
-	  $time, clock, reset, enable, counter_out);
+    $time, clock, reset, enable, counter_out);
   clock = 1;       // initial value of clock
   reset = 0;       // initial value of reset
   enable = 0;      // initial value of enable

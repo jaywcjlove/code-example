@@ -11,7 +11,7 @@
 
         // Convert the entered strings into integers numbers and add.
         total = num1.AsInt() + num2.AsInt();
-		<italic><bold>totalMessage = "Total = " + total;</bold></italic>
+    <italic><bold>totalMessage = "Total = " + total;</bold></italic>
     }
 }
 
@@ -33,8 +33,8 @@
     <p><input type="submit" value="Add" /></p>
   </form>
 
-	@* now we call the totalMessage method 
-	   (a multi line razor comment outside code) *@
+  @* now we call the totalMessage method 
+     (a multi line razor comment outside code) *@
 
   <p>@totalMessage</p>
   

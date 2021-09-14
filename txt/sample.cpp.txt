@@ -129,7 +129,7 @@ void Direct3DBase::CreateWindowSizeDependentResources()
                 )
             );
 
-		Windows::UI::Core::CoreWindow^ p = m_window.Get();
+    Windows::UI::Core::CoreWindow^ p = m_window.Get();
 
         // Create a swap chain for this window from the DXGI factory.
         DX::ThrowIfFailed(

@@ -6,9 +6,9 @@
 #import <Use/GTLT.h> 
 
 /*
-	Multi 
-	Line
-	Comments 
+  Multi 
+  Line
+  Comments 
 */
 @implementation Test
 
@@ -31,9 +31,9 @@
      return YES;
 
      int hex = 0xFEF1F0F;
-	 float ing = 3.14;
-	 ing = 3.14e0;
-	 ing = 31.4e-2;
+   float ing = 3.14;
+   ing = 3.14e0;
+   ing = 31.4e-2;
 }
 
 -(id) initWithParams:(id<anObject>) aHandler withDeviceStateManager:(id<anotherObject>) deviceStateManager
@@ -45,8 +45,8 @@
     [gestureRecognizers addObjectsFromArray:scnView.gestureRecognizers];
     scnView.gestureRecognizers = gestureRecognizers;
 
-	return tapGesture;
-	return nil;
+  return tapGesture;
+  return nil;
 }
 
 @end
