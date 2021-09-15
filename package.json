@@ -4,6 +4,7 @@
   "description": "Language code example.",
   "main": "index.js",
   "scripts": {
+    "prepare": "npm run start",
     "start": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose && npm run create",
     "create": "node scripts.mjs"
   },
