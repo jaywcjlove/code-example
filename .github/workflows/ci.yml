@@ -16,6 +16,16 @@ jobs:
       - run: npm run start
       - run: node scripts.mjs
 
+      - run: mkdir -p build
+      - run: npm i markdown-to-html-cli -g
+      - run: markdown-to-html --output build/index.html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+
       - run: npm install @jsdevtools/npm-publish -g
       - run: npm-publish --token="${{ secrets.NPM_TOKEN }}" ./package.json
 
