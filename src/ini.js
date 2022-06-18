@@ -1,14 +1,20 @@
 
-const code = `; last modified 1 April 2001 by John Doe
-[owner]
-name=John Doe
-organization=Acme Widgets Inc.
+const code = `# Example of a .gitconfig file
 
-[database]
-; use IP address in case network name resolution is not working
-server=192.0.2.62     
-port=143
-file="payroll.dat"
+[core]
+  repositoryformatversion = 0
+  filemode = false
+  bare = false
+  logallrefupdates = true
+  symlinks = false
+  ignorecase = true
+  hideDotFiles = dotGitOnly
+
+# Defines the master branch
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+
 `;
 
 export default code;
