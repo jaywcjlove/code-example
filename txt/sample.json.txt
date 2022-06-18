@@ -4,8 +4,8 @@
     "testPage": "tools/testing/run-tests.htm",
     "enabled": true
   },
-  "search": {
-    "excludeFolders": [
+    "search": {
+        "excludeFolders": [
       ".git",
       "node_modules",
       "tools/bin",
@@ -16,8 +16,8 @@
       "tools/testing/qunit",
       "tools/testing/chutzpah",
       "server.net"
-    ]
-  },
+        ]
+    },
   "languages": {
     "vs.languages.typescript": {
       "validationSettings": [{
@@ -30,20 +30,20 @@
         "codeGenTarget":"ES5",
         "moduleGenTarget":"",
         "lint": {
-          "emptyBlocksWithoutComment": "warning",
-          "curlyBracketsMustNotBeOmitted": "warning",
-          "comparisonOperatorsNotStrict": "warning",
-          "missingSemicolon": "warning",
-          "unknownTypeOfResults": "warning",
-          "semicolonsInsteadOfBlocks": "warning",
-          "functionsInsideLoops": "warning",
-          "functionsWithoutReturnType": "warning",
-          "tripleSlashReferenceAlike": "warning",
-          "unusedImports": "warning",
-          "unusedVariables": "warning",
-          "unusedFunctions": "warning",
-          "unusedMembers": "warning"
-        }
+                    "emptyBlocksWithoutComment": "warning",
+                    "curlyBracketsMustNotBeOmitted": "warning",
+                    "comparisonOperatorsNotStrict": "warning",
+                    "missingSemicolon": "warning",
+                    "unknownTypeOfResults": "warning",
+                    "semicolonsInsteadOfBlocks": "warning",
+                    "functionsInsideLoops": "warning",
+                    "functionsWithoutReturnType": "warning",
+                    "tripleSlashReferenceAlike": "warning",
+                    "unusedImports": "warning",
+                    "unusedVariables": "warning",
+                    "unusedFunctions": "warning",
+                    "unusedMembers": "warning"
+                }
       }, 
       {
         "scope":"/client",

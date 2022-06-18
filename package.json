@@ -2,7 +2,7 @@
   "name": "code-example",
   "version": "3.3.2",
   "description": "Language code example.",
-  "main": "index.js",
+  "main": "./ext.json",
   "scripts": {
     "prepare": "npm run start",
     "start": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose && npm run create",
