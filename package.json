@@ -1,6 +1,8 @@
 {
   "name": "code-example",
-  "version": "3.3.3",
+  "version": "3.3.4",
+  "author": "kenny wong <wowohoo@qq.com>",
+  "license": "MIT",
   "description": "Language code example.",
   "main": "./ext.json",
   "scripts": {
@@ -8,12 +10,10 @@
     "start": "BABEL_ENV=production babel src --out-dir lib --copy-files --verbose && npm run create",
     "create": "node scripts.mjs"
   },
-  "author": "Kenny Wong <wowohoo@qq.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/jaywcjlove/code-example.git"
   },
-  "license": "MIT",
   "files": [
     "lib",
     "txt",
