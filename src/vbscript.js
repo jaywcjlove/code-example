@@ -1,4 +1,3 @@
-
 const code = `' Pete Guhl
 ' 03-04-2012
 '
@@ -14,7 +13,6 @@ Else
   ' WScript.Echo "Oh Happy Day! Oh Happy DAY!"
   boolTransmitOkYN = True
 End If
-
 `;
 
-export default code;
+ export default code;

@@ -1,59 +1,127 @@
-const code = `// Type definitions for [~THE LIBRARY NAME~] [~OPTIONAL VERSION NUMBER~]
-// Project: [~THE PROJECT NAME~]
-// Definitions by: [~YOUR NAME~] <[~A URL FOR YOU~]>
-
-/*~ This is the module template file for function modules.
- *~ You should rename it to index.d.ts and place it in a folder with the same name as the module.
- *~ For example, if you were writing a file for "super-greeter", this
- *~ file should be 'super-greeter/index.d.ts'
+const code = `/* Game of Life
+ * Implemented in TypeScript
+ * To learn more about TypeScript, please visit http://www.typescriptlang.org/
  */
 
-/*~ Note that ES6 modules cannot directly export callable functions.
- *~ This file should be imported using the CommonJS-style:
- *~   import x = require('someLibrary');
- *~
- *~ Refer to the documentation to understand common
- *~ workarounds for this limitation of ES6 modules.
- */
+namespace Conway {
 
-/*~ If this module is a UMD module that exposes a global variable 'myFuncLib' when
- *~ loaded outside a module loader environment, declare that global here.
- *~ Otherwise, delete this declaration.
- */
-export as namespace myFuncLib;
+  export class Cell {
+    public row: number;
+    public col: number;
+    public live: boolean;
 
-/*~ This declaration specifies that the function
- *~ is the exported object from the file
- */
-export = MyFunction;
-
-/*~ This example shows how to have multiple overloads for your function */
-declare function MyFunction(name: string): MyFunction.NamedReturnType;
-declare function MyFunction(length: number): MyFunction.LengthReturnType;
-
-/*~ If you want to expose types from your module as well, you can
- *~ place them in this block. Often you will want to describe the
- *~ shape of the return type of the function; that type should
- *~ be declared in here, as this example shows.
- */
-declare namespace MyFunction {
-    export interface LengthReturnType {
-        width: number;
-        height: number;
+    constructor(row: number, col: number, live: boolean) {
+      this.row = row;
+      this.col = col;
+      this.live = live;
     }
-    export interface NamedReturnType {
-        firstName: string;
-        lastName: string;
+  }
+
+  export class GameOfLife {
+    private gridSize: number;
+    private canvasSize: number;
+    private lineColor: string;
+    private liveColor: string;
+    private deadColor: string;
+    private initialLifeProbability: number;
+    private animationRate: number;
+    private cellSize: number;
+    private context: CanvasRenderingContext2D;
+    private world;
+
+
+    constructor() {
+      this.gridSize = 50;
+      this.canvasSize = 600;
+      this.lineColor = '#cdcdcd';
+      this.liveColor = '#666';
+      this.deadColor = '#eee';
+      this.initialLifeProbability = 0.5;
+      this.animationRate = 60;
+      this.cellSize = 0;
+      this.world = this.createWorld();
+      this.circleOfLife();
     }
 
-    /*~ If the module also has properties, declare them here. For example,
-     *~ this declaration says that this code is legal:
-     *~   import f = require('myFuncLibrary');
-     *~   console.log(f.defaultName);
-     */
-    export const defaultName: string;
-    export let defaultLength: number;
+    public createWorld() {
+      return this.travelWorld( (cell : Cell) =>  {
+        cell.live = Math.random() < this.initialLifeProbability;
+        return cell;
+      });
+    }
+
+    public circleOfLife() : void {
+      this.world = this.travelWorld( (cell: Cell) => {
+        cell = this.world[cell.row][cell.col];
+        this.draw(cell);
+        return this.resolveNextGeneration(cell);
+      });
+      setTimeout( () => {this.circleOfLife()}, this.animationRate);
+    }
+
+    public resolveNextGeneration(cell : Cell) {
+      var count = this.countNeighbors(cell);
+      var newCell = new Cell(cell.row, cell.col, cell.live);
+      if(count < 2 || count > 3) newCell.live = false;
+      else if(count == 3) newCell.live = true;
+      return newCell;
+    }
+
+    public countNeighbors(cell : Cell) {
+      var neighbors = 0;
+      for(var row = -1; row <=1; row++) {
+        for(var col = -1; col <= 1; col++) {
+          if(row == 0 && col == 0) continue;
+          if(this.isAlive(cell.row + row, cell.col + col)) {
+            neighbors++;
+          }
+        }
+      }
+      return neighbors;
+    }
+
+    public isAlive(row : number, col : number) {
+      if(row < 0 || col < 0 || row >= this.gridSize || col >= this.gridSize) return false;
+      return this.world[row][col].live;
+    }
+
+    public travelWorld(callback) {
+      var result = [];
+      for(var row = 0; row < this.gridSize; row++) {
+        var rowData = [];
+        for(var col = 0; col < this.gridSize; col++) {
+          rowData.push(callback(new Cell(row, col, false)));
+        }
+        result.push(rowData);
+      }
+      return result;
+    }
+
+    public draw(cell : Cell) {
+      if(this.context == null) this.context = this.createDrawingContext();
+      if(this.cellSize == 0) this.cellSize = this.canvasSize/this.gridSize;
+
+      this.context.strokeStyle = this.lineColor;
+      this.context.strokeRect(cell.row * this.cellSize, cell.col*this.cellSize, this.cellSize, this.cellSize);
+      this.context.fillStyle = cell.live ? this.liveColor : this.deadColor;
+      this.context.fillRect(cell.row * this.cellSize, cell.col*this.cellSize, this.cellSize, this.cellSize);
+    }
+
+    public createDrawingContext() {
+      var canvas = <HTMLCanvasElement> document.getElementById('conway-canvas');
+      if(canvas == null) {
+          canvas = document.createElement('canvas');
+          canvas.id = 'conway-canvas';
+          canvas.width = this.canvasSize;
+          canvas.height = this.canvasSize;
+          document.body.appendChild(canvas);
+      }
+      return canvas.getContext('2d');
+    }
+  }
 }
+
+var game = new Conway.GameOfLife();
 `;
 
-export default code;
+ export default code;

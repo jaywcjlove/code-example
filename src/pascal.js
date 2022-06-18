@@ -1,26 +1,31 @@
+const code = `program GreetingsNumberOfTimes;
 
-const code = `(* Example Pascal code *)
+{$APPTYPE CONSOLE}
 
-while a <> b do writeln('Waiting');
- 
-if a > b then 
-  writeln('Condition met')
-else 
-  writeln('Condition not met');
- 
-for i := 1 to 10 do 
-  writeln('Iteration: ', i:1);
- 
-repeat
-  a := a + 1
-until a = 10;
- 
-case i of
-  0: write('zero');
-  1: write('one');
-  2: write('two')
-end;
+{$R *.res}
 
+uses
+  System.SysUtils;
+
+var
+  greetingsMessage: string;
+  numberOfTimes, i: integer;
+
+begin
+  try
+    { TODO -oUser -cConsole Main : Insert code here }
+    greetingsMessage := 'Hello World!';
+    numberOfTimes := 10;
+
+    for i := 1 to numberOfTimes do
+    begin
+      Writeln(greetingsMessage);
+    end;
+  except
+    on E: Exception do
+      Writeln(E.ClassName, ': ', E.Message);
+  end;
+end.
 `;
 
-export default code;
+ export default code;

@@ -1,4 +1,3 @@
-
 const code = `[ This program prints "Hello World!" and a newline to the screen, its
   length is 106 active command characters [it is not the shortest.]
 
@@ -39,7 +38,6 @@ Pointer :   ^
 <.                      Cell #3 was set to 'o' from the end of 'Hello'
 +++.------.--------.    Cell #3 for 'rl' and 'd'
 >>+.                    Add 1 to Cell #5 gives us an exclamation point
->++.                    And finally a newline from Cell #6
-`;
+>++.                    And finally a newline from Cell #6`;
 
-export default code;
+ export default code;

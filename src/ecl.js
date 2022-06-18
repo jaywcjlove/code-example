@@ -1,21 +1,10 @@
-
-const code = `/*
-sample useless code to demonstrate ecl syntax highlighting
-this is a multiline comment!
-*/
-
-//  this is a singleline comment!
-
-import ut;
-r := 
-  record
-   string22 s1 := '123';
-   integer4 i1 := 123;
-  end;
-#option('tmp', true);
-d := dataset('tmp::qb', r, thor);
-output(d);
-
+const code = `F0 := IMDB.File_actors;
+CountActors := RECORD
+F0.ActorName;
+UNSIGNED C := COUNT(GROUP);
+END;
+MoviesIn := TABLE(F0,CountActors,ActorName);
+OUTPUT(TOPN(MoviesIn,100,-C));
 `;
 
-export default code;
+ export default code;

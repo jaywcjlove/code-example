@@ -1,4 +1,3 @@
-
 const code = `CREATE TABLE dbo.EmployeePhoto
 (
     EmployeeId INT NOT NULL PRIMARY KEY,
@@ -53,4 +52,4 @@ ORDER BY ProductID, OrderQty
 OPTION (HASH GROUP, FAST 10);
 `;
 
-export default code;
+ export default code;

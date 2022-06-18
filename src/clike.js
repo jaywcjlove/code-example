@@ -1,4 +1,3 @@
-
 const code = `/* C demo code */
 
 #include <zmq.h>
@@ -64,7 +63,6 @@ void* zmq_thread_init(void* zmq_context, int signal_fd) {
   pthread_detach(thread);
   return context;
 }
-
 `;
 
-export default code;
+ export default code;

@@ -1,17 +1,34 @@
-
 const code = `<template>
-  <div class="sass">Im am a {{mustache-like}} template</div>
+  <div>
+    <transition name="router-fade" mode="out-in">
+      <keep-alive>
+          <router-view v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+      </transition>
+      <transition name="router-fade" mode="out-in">
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
+    </transition>
+    <svg-icon></svg-icon>  
+  </div>
 </template>
 
-<script lang="coffee">
-  module.exports =
-    props: ['one', 'two', 'three']
+<script>
+  import svgIcon from './components/common/svg';
+  export default {
+    components:{
+      svgIcon
+    },
+  }
 </script>
 
-<style lang="sass">
-.sass
-  font-size: 18px
-</style>
-`;
+<style lang="scss">
+  @import './style/common';
+  .router-fade-enter-active, .router-fade-leave-active {
+      transition: opacity .3s;
+  }
+  .router-fade-enter, .router-fade-leave-active {
+      opacity: 0;
+  }
+</style>`;
 
-export default code;
+ export default code;

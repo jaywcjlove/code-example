@@ -1,38 +1,70 @@
-
-const code = `{
-  "name": "react-monacoeditor",
-  "version": "1.0.0",
-  "description": "Monaco Editor component for React.",
-  "private": true,
-  "scripts": {
-    "release": "babel --plugins transform-runtime src --out-dir lib --copy-files",
-    "start": "kkt start",
-    "build": "kkt build"
+const code = `﻿{
+  "type": "team",
+  "test": {
+    "testPage": "tools/testing/run-tests.htm",
+    "enabled": true
   },
-  "keywords": [
-    "react-monacoeditor",
-    "monacoeditor",
-    "monaco-editor",
-    "monaco",
-    "editor",
-    "react",
-    "vscode"
-  ],
-  "author": "kenny wong <wowohoo@qq.com>",
-  "license": "MIT",
-  "dependencies": {
-    "monaco-editor": "^0.13.1",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0"
-  },
-  "devDependencies": {
-    "classnames": "^2.2.6",
-    "kkt": "1.9.x",
-    "monaco-editor-webpack-plugin": "^1.4.0",
-    "react-markdown": "^3.3.4"
+    "search": {
+        "excludeFolders": [
+      ".git",
+      "node_modules",
+      "tools/bin",
+      "tools/counts",
+      "tools/policheck",
+      "tools/tfs_build_extensions",
+      "tools/testing/jscoverage",
+      "tools/testing/qunit",
+      "tools/testing/chutzpah",
+      "server.net"
+        ]
+    },
+  "languages": {
+    "vs.languages.typescript": {
+      "validationSettings": [{
+        "scope":"/",
+        "noImplicitAny":true,
+        "noLib":false,
+        "extraLibs":[],
+        "semanticValidation":true,
+        "syntaxValidation":true,
+        "codeGenTarget":"ES5",
+        "moduleGenTarget":"",
+        "lint": {
+                    "emptyBlocksWithoutComment": "warning",
+                    "curlyBracketsMustNotBeOmitted": "warning",
+                    "comparisonOperatorsNotStrict": "warning",
+                    "missingSemicolon": "warning",
+                    "unknownTypeOfResults": "warning",
+                    "semicolonsInsteadOfBlocks": "warning",
+                    "functionsInsideLoops": "warning",
+                    "functionsWithoutReturnType": "warning",
+                    "tripleSlashReferenceAlike": "warning",
+                    "unusedImports": "warning",
+                    "unusedVariables": "warning",
+                    "unusedFunctions": "warning",
+                    "unusedMembers": "warning"
+                }
+      }, 
+      {
+        "scope":"/client",
+        "baseUrl":"/client",
+        "moduleGenTarget":"amd"
+      },
+      {
+        "scope":"/server",
+        "moduleGenTarget":"commonjs"
+      },
+      {
+        "scope":"/build",
+        "moduleGenTarget":"commonjs"
+      },
+      {
+        "scope":"/node_modules/nake",
+        "moduleGenTarget":"commonjs"
+      }],
+      "allowMultipleWorkers": true
+    }
   }
-}
-`;
+}`;
 
-export default code;
+ export default code;

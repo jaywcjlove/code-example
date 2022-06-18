@@ -1,4 +1,3 @@
-
 const code = `# Example of a .gitconfig file
 
 [core]
@@ -14,7 +13,6 @@ const code = `# Example of a .gitconfig file
 [branch "master"]
   remote = origin
   merge = refs/heads/master
-
 `;
 
-export default code;
+ export default code;

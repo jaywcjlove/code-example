@@ -1,4 +1,3 @@
-
 const code = `server {
   listen 173.255.219.235:80;
   server_name website.com.au;
@@ -133,7 +132,6 @@ server {
   }
 
 }
-
 `;
 
-export default code;
+ export default code;

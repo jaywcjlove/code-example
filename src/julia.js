@@ -1,156 +1,26 @@
-
-const code = `#numbers
-1234
-1234im
-.234
-.234im
-2.23im
-2.3f3
-23e2
-0x234
-
-#strings
-'a'
-"asdf"
-r"regex"
-b"bytestring"
-
-"""
-multiline string
-"""
-
-#identifiers
-a
-as123
-function_name!
-
-#unicode identifiers
-# a = x\\ddot
-a⃗ = ẍ
-# a = v\\dot
-a⃗ = v̇
-#F\\vec = m \\cdotp a\\vec
-F⃗ = m·a⃗
-
-#literal identifier multiples
-3x
-4[1, 2, 3]
-
-#dicts and indexing
-x=[1, 2, 3]
-x[end-1]
-x={"julia"=>"language of technical computing"}
-
-
-#exception handling
-try
-  f()
-catch
-  @printf "Error"
-finally
-  g()
+const code = `# good style
+function fixedpointmap(f; iv, tolerance=1E-7, maxiter=1000)
+    # setup the algorithm
+    x_old = iv
+    normdiff = Inf
+    iter = 1
+    while normdiff > tolerance && iter <= maxiter
+        x_new = f(x_old) # use the passed in map
+        normdiff = norm(x_new - x_old)
+        x_old = x_new
+        iter = iter + 1
+    end
+    return (value = x_old, normdiff=normdiff, iter=iter) # A named tuple
 end
 
-#types
-immutable Color{T<:Number}
-  r::T
-  g::T
-  b::T
-end
+# define a map and parameters
+p = 1.0
+β = 0.9
+f(v) = p + β * v # note that p and β are used in the function!
 
-#functions
-function change!(x::Vector{Float64})
-  for i = 1:length(x)
-    x[i] *= 2
-  end
-end
-
-#function invocation
-f('b', (2, 3)...)
-
-#operators
-|=
-&=
-^=
-\\-
-%=
-*=
-+=
--=
-<=
->=
-!=
-==
-%
-*
-+
--
-<
->
-!
-=
-|
-&
-^
-\
-?
-~
-:
-$
-<:
-.<
-.>
-<<
-<<=
->>
->>>>
->>=
->>>=
-<<=
-<<<=
-.<=
-.>=
-.==
-->
-//
-in
-...
-//
-:=
-.//=
-.*=
-./=
-.^=
-.%=
-.+=
-.-=
-\\=
-\\\\=
-||
-===
-&&
-|=
-.|=
-<:
->:
-|>
-<|
-::
-x ? y : z
-
-#macros
-@spawnat 2 1+1
-@eval(:x)
-
-#keywords and operators
-if else elseif while for
- begin let end do
-try catch finally return break continue
-global local const 
-export import importall using
-function macro module baremodule 
-type immutable quote
-true false enumerate
+sol = fixedpointmap(f, iv=0.8, tolerance=1.0E-8) # don't need to pass
+println("Fixed point = $(sol.value), and |f(x) - x| = $(sol.normdiff) in $(sol.iter)"*
+        " iterations")
 `;
 
-export default code;
+ export default code;

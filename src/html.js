@@ -100,4 +100,4 @@ const code = `<!DOCTYPE HTML>
 </html>
 `;
 
-export default code;
+ export default code;

@@ -1,27 +1,44 @@
-
 const code = `#!/bin/bash
+# Simple line count example, using bash
+#
+# Bash tutorial: http://linuxconfig.org/Bash_scripting_Tutorial#8-2-read-file-into-bash-array
+# My scripting link: http://www.macs.hw.ac.uk/~hwloidl/docs/index.html#scripting
+#
+# Usage: ./line_count.sh file
+# -----------------------------------------------------------------------------
 
-# clone the repository
-git clone http://github.com/garden/tree
+# Link filedescriptor 10 with stdin
+exec 10<&0
+# stdin replaced with a file supplied as a first argument
+exec < $1
+# remember the name of the input file
+in=$1
 
-# generate HTTPS credentials
-cd tree
-openssl genrsa -aes256 -out https.key 1024
-openssl req -new -nodes -key https.key -out https.csr
-openssl x509 -req -days 365 -in https.csr -signkey https.key -out https.crt
-cp https.key{,.orig}
-openssl rsa -in https.key.orig -out https.key
+# init
+file="current_line.txt"
+let count=0
 
-# start the server in HTTPS mode
-cd web
-sudo node ../server.js 443 'yes' >> ../node.log &
-
-# here is how to stop the server
-for pid in \`ps aux | grep 'node ../server.js' | awk '{print $2}'\` ; do
-  sudo kill -9 $pid 2> /dev/null
+# this while loop iterates over all lines of the file
+while read LINE
+do
+    # increase line counter
+    ((count++))
+    # write current line to a tmp file with name $file (not needed for counting)
+    echo $LINE > $file
+    # this checks the return code of echo (not needed for writing; just for demo)
+    if [ $? -ne 0 ]
+     then echo "Error in writing to file \${file}; check its permissions!"
+    fi
 done
 
-exit 0
-`;
+echo "Number of lines: $count"
+echo "The last line of the file is: \`cat \${file}\`"
 
-export default code;
+# Note: You can achieve the same by just using the tool wc like this
+echo "Expected number of lines: \`wc -l $in\`"
+
+# restore stdin from filedescriptor 10
+# and close filedescriptor 10
+exec 0<&10 10<&-`;
+
+ export default code;

@@ -1,4 +1,3 @@
-
 const code = `# This is a TOML document. Boom.
 
 title = "TOML Example"
@@ -33,7 +32,6 @@ data = [ ["gamma", "delta"], [1, 2] ]
 hosts = [
   "alpha",
   "omega"
-]
-`;
+]`;
 
-export default code;
+ export default code;

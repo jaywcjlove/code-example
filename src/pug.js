@@ -1,33 +1,20 @@
-
-const code = `doctype html
-  html
+const code = `doctype 5
+html(lang="en")
     head
-      title= "Pug Templating CodeMirror Mode Example"
-      link(rel='stylesheet', href='/css/bootstrap.min.css')
-      link(rel='stylesheet', href='/css/index.css')
-      script(type='text/javascript', src='/js/jquery-1.9.1.min.js')
-      script(type='text/javascript', src='/js/bootstrap.min.js')
+        title= pageTitle
+        script(type='text/javascript')
+            if (foo) {
+                bar()
+            }
     body
-      div.header
-        h1 Welcome to this Example
-      div.spots
-        if locals.spots
-          each spot in spots
-            div.spot.well
-         div
-           if spot.logo
-             img.img-rounded.logo(src=spot.logo)
-           else
-             img.img-rounded.logo(src="img/placeholder.png")
-         h3
-           a(href=spot.hash) ##{spot.hash}
-           if spot.title
-             span.title #{spot.title}
-           if spot.desc
-             div #{spot.desc}
-        else
-          h3 There are no spots currently available.
+        // Disclaimer: You will need to turn insertSpaces to true in order for the
+            syntax highlighting to kick in properly (especially for comments)
+            Enjoy :)
+        h1 Pug - node template engine
+        #container
+            if youAreUsingPug
+                p You are amazing
+            else
+                p Get on it!`;
 
-`;
-
-export default code;
+ export default code;

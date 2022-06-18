@@ -1,73 +1,38 @@
+const code = `\`include "first_counter.v"
+module first_counter_tb();
+// Declare inputs as regs and outputs as wires
+reg clock, reset, enable;
+wire [3:0] counter_out;
 
-const code = `// Literals
-1'b0
-1'bx
-1'bz
-16'hDC78
-'hdeadbeef
-'b0011xxzz
-1234
-32'd5678
-3.4e6
--128.7
+// Initialize all variables
+initial begin
+  $display ("time\t clk reset enable counter");
+  $monitor ("%g\t %b   %b     %b      %b",
+    $time, clock, reset, enable, counter_out);
+  clock = 1;       // initial value of clock
+  reset = 0;       // initial value of reset
+  enable = 0;      // initial value of enable
+   #5  reset = 1;    // Assert the reset
+   #10  reset = 0;   // De-assert the reset
+   #10  enable = 1;  // Assert enable
+   #100  enable = 0; // De-assert enable
+   #5  $finish;      // Terminate simulation
+end
 
-// Macro definition
-\`define BUS_WIDTH = 8;
+// Clock generator
+always begin
+   #5  clock = ~clock; // Toggle clock every 5 ticks
+end
 
-// Module definition
-module block(
-  input                   clk,
-  input                   rst_n,
-  input  [\`BUS_WIDTH-1:0] data_in,
-  output [\`BUS_WIDTH-1:0] data_out
+// Connect DUT to test bench
+first_counter U_counter (
+clock,
+reset,
+enable,
+counter_out
 );
-  
-  always @(posedge clk or negedge rst_n) begin
 
-    if (~rst_n) begin
-      data_out <= 8'b0;
-    end else begin
-      data_out <= data_in;
-    end
-    
-    if (~rst_n)
-      data_out <= 8'b0;
-    else
-      data_out <= data_in;
-    
-    if (~rst_n)
-      begin
-        data_out <= 8'b0;
-      end
-    else
-      begin
-        data_out <= data_in;
-      end
-
-  end
-  
 endmodule
-
-// Class definition
-class test;
-
-  /**
-   * Sum two integers
-   */
-  function int sum(int a, int b);
-    int result = a + b;
-    string msg = $sformatf("%d + %d = %d", a, b, result);
-    $display(msg);
-    return result;
-  endfunction
-  
-  task delay(int num_cycles);
-    repeat(num_cycles) #1;
-  endtask
-  
-endclass
-
-
 `;
 
-export default code;
+ export default code;

@@ -1,37 +1,34 @@
+const code = `FROM mono:3.12
 
-const code = `# Install Ghost blogging platform and run development environment
-#
-# VERSION 1.0.0
+ENV KRE_FEED https://www.myget.org/F/aspnetvnext/api/v2
+ENV KRE_USER_HOME /opt/kre
 
-FROM ubuntu:12.10
-MAINTAINER Amer Grgic "amer@livebyt.es"
-WORKDIR /data/ghost
+RUN apt-get -qq update && apt-get -qqy install unzip 
 
-# Install dependencies for nginx installation
-RUN apt-get update
-RUN apt-get install -y python g++ make software-properties-common --force-yes
-RUN add-apt-repository ppa:chris-lea/node.js
-RUN apt-get update
-# Install unzip
-RUN apt-get install -y unzip
-# Install curl
-RUN apt-get install -y curl
-# Install nodejs & npm
-RUN apt-get install -y rlwrap
-RUN apt-get install -y nodejs 
-# Download Ghost v0.4.1
-RUN curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip
-# Unzip Ghost zip to /data/ghost
-RUN unzip -uo /tmp/ghost.zip -d /data/ghost
-# Add custom config js to /data/ghost
-ADD ./config.example.js /data/ghost/config.js
-# Install Ghost with NPM
-RUN cd /data/ghost/ && npm install --production
-# Expose port 2368
-EXPOSE 2368
-# Run Ghost
-CMD ["npm","start"]
+ONBUILD RUN curl -sSL https://raw.githubusercontent.com/aspnet/Home/dev/kvminstall.sh | sh
+ONBUILD RUN bash -c "source $KRE_USER_HOME/kvm/kvm.sh \
+    && kvm install latest -a default \
+    && kvm alias default | xargs -i ln -s $KRE_USER_HOME/packages/{} $KRE_USER_HOME/packages/default"
 
-`;
+# Install libuv for Kestrel from source code (binary is not in wheezy and one in jessie is still too old)
+RUN apt-get -qqy install \
+    autoconf \
+    automake \
+    build-essential \
+    libtool 
+RUN LIBUV_VERSION=1.0.0-rc2 \
+    && curl -sSL https://github.com/joyent/libuv/archive/v\${LIBUV_VERSION}.tar.gz | tar zxfv - -C /usr/local/src \
+    && cd /usr/local/src/libuv-$LIBUV_VERSION \
+    && sh autogen.sh && ./configure && make && make install \
+    && rm -rf /usr/local/src/libuv-$LIBUV_VERSION \
+    && ldconfig
 
-export default code;
+ENV PATH $PATH:$KRE_USER_HOME/packages/default/bin
+
+# Extra things to test
+RUN echo "string at end"
+RUN echo must work 'some str' and some more
+RUN echo hi this is # not a comment
+RUN echo 'String with \${VAR} and another $one here'`;
+
+ export default code;

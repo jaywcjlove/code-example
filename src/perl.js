@@ -1,41 +1,20 @@
-
 const code = `#!/usr/bin/perl
+use strict;
+use warnings;
 
-use Something qw(func1 func2);
+use Path::Tiny;
 
-# strings
-my $s1 = qq'single line';
-our $s2 = q(multi-
-              line);
+my $dir = path('foo','bar'); # foo/bar
 
-=item Something
-  Example.
-=cut
+# Iterate over the content of foo/bar
+my $iter = $dir->iterator;
+while (my $file = $iter->()) {
 
-my $html=<<'HTML'
-<html>
-<title>hi!</title>
-</html>
-HTML
+    # See if it is a directory and skip
+    next if $file->is_dir();
 
-print "first,".join(',', 'second', qq~third~);
+    # Print out the file name and path
+    print "$file\n";
+}`;
 
-if($s1 =~ m[(?<!\\s)(l.ne)\\z]o) {
-  $h->{$1}=$$.' predefined variables';
-  $s2 =~ s/\\-line//ox;
-  $s1 =~ s[
-      line ]
-    [
-      block
-    ]ox;
-}
-
-1; # numbers and comments
-
-__END__
-something...
-
-
-`;
-
-export default code;
+ export default code;

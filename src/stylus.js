@@ -1,4 +1,3 @@
-
 const code = `/* Stylus mode */
 
 #id,
@@ -64,7 +63,6 @@ a:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-
 `;
 
-export default code;
+ export default code;

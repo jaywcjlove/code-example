@@ -13,4 +13,4 @@ const code = `<?xml version="1.0"?>
   </system.web>
 </configuration>`;
 
-export default code;
+ export default code;

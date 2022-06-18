@@ -1,4 +1,3 @@
-
 const code = `%% -*- mode: erlang; erlang-indent-level: 2 -*-
 %%% Created :  7 May 2012 by mats cronqvist <masse@klarna.com>
 
@@ -36,4 +35,4 @@ expand_recs(_,Term) ->
 
 `;
 
-export default code;
+ export default code;

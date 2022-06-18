@@ -1,33 +1,34 @@
+const code = `
+<div class="entry">
+  <h1>{{title}}</h1>
+  {{#if author}}
+  <h2>{{author.firstName}} {{author.lastName}}</h2>
+  {{else}}
+  <h2>Unknown Author</h2>
+  {{/if}}
+  {{contentBody}}
+</div>
 
-const code = `{{> breadcrumbs}}
-{{!--
-  You can use the t function to get
-  content translated to the current locale, es:
-  {{t 'article_list'}}
---}}
+{{#unless license}}
+  <h3 class="warning">WARNING: This entry does not have a license!</h3>
+{{/unless}}
 
-<h1>{{t 'article_list'}}</h1>
+<div class="footnotes">
+  <ul>
+    {{#each footnotes}}
+    <li>{{this}}</li>
+    {{/each}}
+  </ul>
+</div>
 
-{{! one line comment }}
+<h1>Comments</h1>
 
-{{#each articles}}
-  {{~title}}
-  <p>{{excerpt body size=120 ellipsis=true}}</p>
-
-  {{#with author}}
-    written by {{first_name}} {{last_name}}
-    from category: {{../category.title}}
-    {{#if @../last}}foobar!{{/if}}
-  {{/with~}}
-
-  {{#if promoted.latest}}Read this one! {{else}} This is ok! {{/if}}
-
-  {{#if @last}}<hr>{{/if}}
-{{/each}}
-
-{{#form new_comment}}
-  <input type="text" name="body">
-{{/form}}
+<div id="comments">
+  {{#each comments}}
+  <h2><a href="/posts/{{../permalink}}#{{id}}">{{title}}</a></h2>
+  <div>{{body}}</div>
+  {{/each}}
+</div>
 `;
 
-export default code;
+ export default code;
