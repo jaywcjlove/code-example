@@ -25,24 +25,42 @@ import('code-example/txt/sample.php.txt').then((data) => {
 ## Language
 
 ```bash
-apl              eiffel           javascript       oz               scheme           troff
-brainfuck        elm              jinja2           pascal           shell            ttcn-cfg
-clike            erlang           json             pegjs            sieve            ttcn
-clojure          factor           jsx              perl             slim             turtle
-cmake            fcl              julia            php              smalltalk        twig
-cobol            forth            less             pig              smarty           vb
-coffeescript     fortran          livescript       powershell       solr             vbscript
-commonlisp       gas              lua              properties/ini   soy              velocity
-crystal          gherkin          markdown         protobuf         sparql           verilog
-css              go               mathematica      pug              spreadsheet      vhdl
-cypher           groovy           mbox             puppet           sql              vue
-cython           haml             md               python           stex             webidl
-d                handlebars       mirc             q                stylus           xml
-dart             haskell-literate modelica         r                swift            xquery
-diff             haskell          mscgen           rpm              tcl              yacas
-django           haxe             mumps            rst              textile          yaml-frontmatter
-dockerfile       htmlembedded     nginx            ruby             tiddlywiki       yaml
-dtd              htmlmixed        nsis             rust             tiki             z80
-dylan            http             ntriples         sas              toml
-ecl              idl              octave           sass             tornado
+diff.lhs.txt                sample.freemarker2.txt      sample.mysql.txt            sample.sb.txt
+diff.rhs.txt                sample.fsharp.txt           sample.nginx.txt            sample.scala.txt
+sample.abap.txt             sample.go.txt               sample.objective-c.txt      sample.scheme.txt
+sample.aes.txt              sample.graphql.txt          sample.pascal.txt           sample.scss.txt
+sample.apex.txt             sample.handlebars.txt       sample.pascaligo.txt        sample.shell.txt
+sample.azcli.txt            sample.hcl.txt              sample.perl.txt             sample.sol.txt
+sample.bat.txt              sample.html.txt             sample.pgsql.txt            sample.sparql.txt
+sample.bicep.txt            sample.ini.txt              sample.php.txt              sample.sql.txt
+sample.brainfuck.txt        sample.java.txt             sample.pla.txt              sample.st.txt
+sample.c.txt                sample.javascript.txt       sample.plaintext.txt        sample.stylus.txt
+sample.cameligo.txt         sample.json.txt             sample.postiats.txt         sample.swift.txt
+sample.clike.txt            sample.jsx.txt              sample.powerquery.txt       sample.systemverilog.txt
+sample.clojure.txt          sample.julia.txt            sample.powershell.txt       sample.tcl.txt
+sample.coffeescript.txt     sample.kotlin.txt           sample.proto.txt            sample.toml.txt
+sample.cpp.txt              sample.less.txt             sample.pug.txt              sample.tsx.txt
+sample.csharp.txt           sample.lex.txt              sample.python.txt           sample.twig.txt
+sample.csp.txt              sample.lexon.txt            sample.qsharp.txt           sample.typescript.txt
+sample.css.txt              sample.liquid.txt           sample.r.txt                sample.vb.txt
+sample.dart.txt             sample.livescript.txt       sample.razor.txt            sample.vbscript.txt
+sample.dockerfile.txt       sample.lua.txt              sample.redis.txt            sample.verilog.txt
+sample.ecl.txt              sample.m3.txt               sample.redshift.txt         sample.vue.txt
+sample.elixir.txt           sample.markdown.txt         sample.restructuredtext.txt sample.xml.txt
+sample.erlang.txt           sample.mips.txt             sample.ruby.txt             sample.yaml.txt
+sample.flow9.txt            sample.msdax.txt            sample.rust.txt
 ```
+
+## Contributors
+
+As always, thanks to our amazing contributors!
+
+<a href="https://github.com/jaywcjlove/code-example/graphs/contributors">
+  <img src="https://jaywcjlove.github.io/code-example/CONTRIBUTORS.svg" />
+</a>
+
+Made with [github-action-contributors](https://github.com/jaywcjlove/github-action-contributors).
+
+## License
+
+Licensed under the MIT License.
