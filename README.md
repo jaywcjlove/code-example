@@ -1,7 +1,7 @@
 Code Sample
 ===
 
-[[NPM Downloads](https://img.shields.io/npm/dm/code-example.svg?style=flat)](https://github.com/jaywcjlove/code-example)
+[![NPM Downloads](https://img.shields.io/npm/dm/code-example.svg?style=flat)](https://github.com/jaywcjlove/code-example)
 [![NPM Version](https://img.shields.io/npm/v/code-example.svg)](https://www.npmjs.com/package/code-example)
 [![CI](https://github.com/jaywcjlove/code-example/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/code-example/actions/workflows/ci.yml)
 
