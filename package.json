@@ -4,6 +4,8 @@
   "author": "kenny wong <wowohoo@qq.com>",
   "license": "MIT",
   "description": "Language code example.",
+  "homepage": "https://jaywcjlove.github.io/code-example",
+  "funding": "https://jaywcjlove.github.io/#/sponsor",
   "main": "./ext.json",
   "scripts": {
     "prepare": "npm run start",

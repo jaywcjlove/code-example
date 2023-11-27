@@ -1,6 +1,7 @@
 Code Sample
 ===
 
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-048754?logo=buymeacoffee)](https://jaywcjlove.github.io/#/sponsor)
 [![NPM Downloads](https://img.shields.io/npm/dm/code-example.svg?style=flat)](https://github.com/jaywcjlove/code-example)
 [![NPM Version](https://img.shields.io/npm/v/code-example.svg)](https://www.npmjs.com/package/code-example)
 [![CI](https://github.com/jaywcjlove/code-example/actions/workflows/ci.yml/badge.svg)](https://github.com/jaywcjlove/code-example/actions/workflows/ci.yml)
