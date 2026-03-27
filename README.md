@@ -1,5 +1,5 @@
 <div markdown="1">
-  <sup>使用 <a href="https://wangchujiang.com/#/app" target="_blank">我的应用</a> 也是一种 <a href="https://wangchujiang.com/#/sponsor" target="_blank">支持</a> 我的方式：</sup>
+  <sup>Using <a href="https://wangchujiang.com/#/app" target="_blank">my app</a> is also a way to <a href="https://wangchujiang.com/#/sponsor" target="_blank">support</a> me:</sup>
   <br>
   <a target="_blank" href="https://apps.apple.com/app/6758053530" title="Scap: Screenshot & Markup Edit for macOS"><img alt="Scap: Screenshot & Markup Edit" height="52" width="52" src="https://wangchujiang.com/appicon/scap.png"></a>
   <a target="_blank" href="https://apps.apple.com/app/6757317079" title="Screen Test for macOS"><img alt="Screen Test" height="52" width="52" src="https://wangchujiang.com/appicon/screen-test.png"></a>
